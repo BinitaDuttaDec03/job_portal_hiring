@@ -1,6 +1,6 @@
-import { sql } from "../utils/db.js";
 import app from "./app.js";
 import dotenv from "dotenv";
+import { sql } from "./utils/db.js";
 dotenv.config();
 async function initDb() {
     try {
