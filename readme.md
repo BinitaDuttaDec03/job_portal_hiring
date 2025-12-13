@@ -18,6 +18,11 @@ A scalable, cloud-deployed job portal built on a microservices architecture, int
 - **Payment Service**: Stored and managed all subscription and transaction payment details.
 - **Utils Service**: Centralized utility functions, including handling cloud storage, **Generative AI** features (Resume Analyzer), and email notification features.
 
+### 💻 API Implementation Details:
+
+- **Core Endpoints (Auth Service)**: Implemented a key endpoint (`/register`) to handle user registration, including differentiating and assigning roles (**Job Seeker** / **Recruiter**) upon signup.
+- **Middleware**: Utilized **Multer** for efficient handling of multi-part form data, specifically for receiving image and file uploads (e.g., profile pictures, resumes) before processing and sending them to cloud storage.
+
 ### ✨ Key Features Implemented:
 
 - **Generative AI Integration**: Developed an **AI Resume Analyzer** feature that provides users with an **ATS compatibility score**, customized strengths, and recommendations.
