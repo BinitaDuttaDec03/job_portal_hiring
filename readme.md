@@ -6,6 +6,7 @@ A scalable, cloud-deployed job portal built on a microservices architecture, int
 
 - **Frontend**: Developed a responsive, high-performance user interface using **Next.JS**.
 - **Backend**: Designed and implemented multiple, loosely coupled microservices using **Node.JS** and **Express.JS**.
+- **File Storage**: Integrated **Cloudinary** for secure and scalable storage and delivery of user files, specifically for handling resume uploads.
 - **Data & Caching**: Utilized **Neon DB (PostgreSQL)** for robust transactional data and **Redis** for efficient caching and session management.
 - **Event Streaming**: Implemented **Kafka** to handle asynchronous communication between services (e.g., application status updates, user notifications), ensuring system reliability and scalability.
 - **Development Tools**: Ensured code integrity and maintainability using **TypeScript** end-to-end and leveraged **Docker** for consistent containerization.
@@ -21,7 +22,7 @@ A scalable, cloud-deployed job portal built on a microservices architecture, int
 ### 💻 API Implementation Details:
 
 - **Core Endpoints (Auth Service)**: Implemented a key endpoint (`/register`) to handle user registration, including differentiating and assigning roles (**Job Seeker** / **Recruiter**) upon signup.
-- **Middleware**: Utilized **Multer** for efficient handling of multi-part form data, specifically for receiving image and file uploads (e.g., profile pictures, resumes) before processing and sending them to cloud storage.
+- **Middleware**: Utilized **Multer** for efficient handling of multi-part form data, receiving file uploads before processing and sending them to **Cloudinary** for storage.
 
 ### ✨ Key Features Implemented:
 
