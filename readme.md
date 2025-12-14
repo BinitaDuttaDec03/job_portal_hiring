@@ -19,10 +19,16 @@ A scalable, cloud-deployed job portal built on a microservices architecture, int
 - **Payment Service**: Stored and managed all subscription and transaction payment details.
 - **Utils Service**: Centralized utility functions, including handling cloud storage, **Generative AI** features (Resume Analyzer), and email notification features.
 
+### 💾 Database Schema (PostgreSQL):
+
+- **users**: Stores core user data including authentication details (`password`), role (using the custom `user_role` ENUM: 'jobseeker'/'recruiter'), profile details (`bio`, `phone_number`), and file references (`resume`, `profile_pic`).
+- **skills**: Simple lookup table for distinct skill names.
+- **user_skills**: A junction table enforcing a **Many-to-Many relationship** between `users` and `skills`, enabling users to list multiple proficiencies.
+
 ### 💻 API Implementation Details:
 
 - **Core Endpoints (Auth Service)**: Implemented a key endpoint (`/register`) to handle user registration, including differentiating and assigning roles (**Job Seeker** / **Recruiter**) upon signup.
-- **Middleware**: Utilized **Multer** for efficient handling of multi-part form data, receiving file uploads before processing and sending them to **Cloudinary** for storage.
+- **Middleware**: Utilized **Multer** and the **datauri npm package** for efficient file handling; **Multer** received file uploads, and **datauri** was used to get the file buffer required for processing and sending the files to **Cloudinary** for storage.
 
 ### ✨ Key Features Implemented:
 
