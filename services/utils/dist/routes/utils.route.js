@@ -1,5 +1,20 @@
 import express from "express";
-import { uploadFile } from "../controllers/utils.controller.js";
+import cloudinary from "cloudinary";
 const router = express.Router();
-router.post("/upload", uploadFile);
+router.post("/upload", async (req, res) => {
+    try {
+        const { buffer, public_id } = req.body;
+        if (public_id) {
+            await cloudinary.v2.uploader.destroy(public_id);
+        }
+        const cloud = await cloudinary.v2.uploader.upload(buffer);
+        res.json({
+            url: cloud.secure_url,
+            public_id: cloud.public_id,
+        });
+    }
+    catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 export default router;
