@@ -32,6 +32,8 @@ A scalable, cloud-deployed job portal built on a microservices architecture, int
 
 ### ✨ Key Features Implemented:
 
+- **Job Seeker Functionality**: Enabled users to efficiently **search and filter job listings** and **upload/manage their resume** files via Cloudinary integration.
+- **Recruiter Workflow Management**: Implemented endpoints allowing recruiters to **post new job openings** and manage their lifecycle by **closing job applications** once filled.
 - **Generative AI Integration**: Developed an **AI Resume Analyzer** feature that provides users with an **ATS compatibility score**, customized strengths, and recommendations.
 - **Subscription Management**: Integrated **RazorPay** to handle payment gateways for premium subscriptions and services.
 - **Cloud Deployment**: Managed end-to-end deployment, scaling, and operational maintenance of the microservices ecosystem on **AWS**.
