@@ -18,7 +18,7 @@ router.post("/upload", async (req, res) => {
       public_id: cloud.public_id,
     });
   } catch (error: any) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
 

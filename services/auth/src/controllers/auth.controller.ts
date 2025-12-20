@@ -4,6 +4,7 @@ import { sql } from "../utils/db.js";
 import ErrorHandler from "../utils/errorHandler.js";
 import { TryCatch } from "../utils/TryCatch.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 export const registerUser = TryCatch(async (req, res, next) => {
   const { name, email, password, phoneNumber, role, bio } = req.body;
@@ -59,8 +60,17 @@ export const registerUser = TryCatch(async (req, res, next) => {
     registeredUser = user;
   }
 
+  const token = jwt.sign(
+    { id: registeredUser?.user_id },
+    process.env.JWT_SECRET as string,
+    {
+      expiresIn: "15d",
+    }
+  );
+
   res.json({
     message: "User registered successfully",
     user: registeredUser,
+    token,
   });
 });
